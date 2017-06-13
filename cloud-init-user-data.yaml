@@ -1,0 +1,48 @@
+#cloud-config
+bootcmd:
+  - yum install -y https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+  - echo 10.70.112.148 jump.vpc-1e810be1.internal >> /etc/hosts
+
+packages:
+  - puppet
+
+puppet:
+  conf:
+    agent:
+      server: "jump.vpc-1e810be1.internal"
+      certname: "%f"
+
+  ca_cert: |
+    -----BEGIN CERTIFICATE-----
+    MIIFtjCCA56gAwIBAgIBAzANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDDCVQdXBw
+    ZXQgQ0E6IGp1bXAudnBjLTFlODEwYmUxLmludGVybmFsMB4XDTE3MDYxMTIxMjcz
+    MloXDTIyMDYxMTIxMjczMlowJTEjMCEGA1UEAwwaanVtcC52cGMtMWU4MTBiZTEu
+    aW50ZXJuYWwwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCDWFAPRec+
+    5WBS9qVh4R7d1OxNRsAY+Gz7bS14hhF1YorSc03E/X4R/PWTsfFIomlSZ4hNWItZ
+    VqS28zPzhQ+9BzrbXhOh5NKVVCwxVSUosWfD2S6WJcDpIrFptY283utaNzSQFzpu
+    /XNqBc4P8omBsMP8sdWxxS7VSR8oGwp83NJfJzSt6i1weJi/zOSHcxYfXW8jOs5F
+    XKmFKP80WJXerdU+U8V0JlwmsGb6MTy0ePb+KP8zTw0xGYwS7AsR0xpkM/GTYlmI
+    /lIj6YxgqY1F0mdLC0eGRK5i+/wLa+0K8FqXvk44NNQkItM2ucruclP1hWpHLl6v
+    i/tQCsp1Jovqfglknc5XftutUx+1eiLNhD9qmxXEPZ/pA9XdgcZBPe7Zwzg8aaxm
+    mYXgVlIqRdW5mOm6NZ7ZTJahW9TGqC0lhCWFOIkEOT/utj/JjWKKmjIDxPIbMxst
+    TAWUIodkb0ky4MxGwjjJ97WsA1h8EQ0h7QyoOyqDrSucy0EA0erFuRh1yPSKGHqg
+    4CG4SZLJhJ6xOmQaAhQ3wN7DfUxaU3/4X/bDvDqBkjX82RExlAHNTqojDwh87YH/
+    ssTlvA47Q8Z5SewxoUstpn5D0Kxs0p97VWu1ZotO6YYlihvhGDRlcNWKwqWJhP8v
+    gdSv4xwTkKKNc2kElYcX0pOJFRnlEsVinQIDAQABo4HlMIHiMDEGCWCGSAGG+EIB
+    DQQkFiJQdXBwZXQgU2VydmVyIEludGVybmFsIENlcnRpZmljYXRlMB8GA1UdIwQY
+    MBaAFNjHJxu7ssl5rCUmoqhZ7XmiDPg0MB0GA1UdDgQWBBQ1GHg3GMOQE9T65IoN
+    tZnPPDgqfjAtBgNVHREEJjAkggZwdXBwZXSCGmp1bXAudnBjLTFlODEwYmUxLmlu
+    dGVybmFsMAwGA1UdEwEB/wQCMAAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsG
+    AQUFBwMCMA4GA1UdDwEB/wQEAwIFoDANBgkqhkiG9w0BAQsFAAOCAgEAcoXGUspN
+    xBpKC7wHMGqQVRR7zeLGINex3TciNQuRycMy29mKFU8LWUmRFkRtMJrQ/3dZesGG
+    ejfqED5gVxtH6c7gj/nGXuDXuym1tE+jAQDegOSvtSJmf1UwDKC1uDgwDmF1Z416
+    NINup5FIEJXviOw/txUxtkY+LfSn1CE5On8x+t9UBD6oGJ6Wmy2eT3m3GuHLymEe
+    jXMl1PWpYqyY7/ghp3IJfUSQDsbx3MNENVF+LsrctLSw4S4gqVZ3RWNY1+GlnzaJ
+    fAsytc00lYrit0QOuPqE0KZGqc9UItZKSIJ/Nkh/wdi96j7FRjepQHZeIYBvVU1A
+    57dGuPNrSIDYHECKL8iU5upgdrCRBTxu7Xtnas7ktlHF+XCD+b5euJIlkY3GsQ4U
+    SzvlKTW6MVgogDcjmpXhg0XWcChJJPuROzi74cnakkpiv0i6qZPzMhSyEMOOM75j
+    ZLb3NFHnYdCITEwHiaANqyndXH4qeyW7deXAq1WC/MD2j+qb+bgJjlNS3bzsE4uS
+    a5fnhRVCCpq6K/mWVwIULSxNd0Cj27EV5c3A8gBnlSbNWxQkxy9YxgGfu0orfCU2
+    VZNTB5drFo7NG6XevLuZzv4nN6TtnPWoTEQy6CQnP39y1+3CzzntfIrioDwCQra8
+    iKyKcqKKBQmH/eZ/Usb7bHD4PnGU7cYlIBA=
+    -----END CERTIFICATE-----
